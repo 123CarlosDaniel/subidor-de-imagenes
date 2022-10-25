@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  border-radius: 12px;
+  border: none;
+}
+
+.form label {
+  margin-block: 0.5rem;
+}
+div#div_file {
+  position: relative;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #a095fb;
+  margin-top: 1rem;
+}
+
+div#div_file input {
+  cursor: pointer;
+  
+}
+
+input#file {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
