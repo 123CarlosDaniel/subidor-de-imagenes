@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .navbar li {
   list-style: none;
@@ -14,4 +15,13 @@
   letter-spacing: 1px;
   color: #a095fb;
   cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+  .title {
+    font-size: 1.05rem;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
 }

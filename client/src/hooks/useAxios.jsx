@@ -1,25 +1,27 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import GlobalContext from '../context/GlobalContext'
 
-axios.defaults.baseURL = "http://localhost:3500/api/v1"
-const useAxios = ({url,method='GET',body,headers}) => {
-  const [response, setResponse ] = useState(null)
+axios.defaults.baseURL = 'http://localhost:3500/api/v1'
+const useAxios = ({ url, method = 'GET', body, headers }) => {
+  const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState("")
-    
-  useEffect(()=>{
+  const [error, setError] = useState('')
+  const { refresh } = useContext(GlobalContext)
+  useEffect(() => {
     const controller = new AbortController()
-
-    const fetchData = async ()=>{
+    console.log({ refresh }, 'gawgwagwagwa')
+    const fetchData = async () => {
       try {
         const res = await axios({
           method,
           url,
-          data : body,
+          data: body,
           headers,
-          signal : controller.signal
+          signal: controller.signal,
         })
         setResponse(res.data)
+        setError('')
       } catch (error) {
         console.log(error.message)
         setError(error)
@@ -28,14 +30,12 @@ const useAxios = ({url,method='GET',body,headers}) => {
       }
     }
     fetchData()
-    return ()=> {
+    return () => {
       controller.abort()
-      console.log('canceling')
     }
-    
-  },[method])
- 
-  return {response, error ,loading}
+  }, [method, refresh])
+
+  return { response, error, loading }
 }
 
 export default useAxios

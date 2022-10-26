@@ -1,7 +1,7 @@
 .container-cards {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(auto-fill,minmax(18rem,1fr));
 } 
 
 .card {
@@ -9,6 +9,13 @@
   height: 100%;
   padding: 1rem 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card > h3 {
+  text-transform: capitalize;
 }
 
 .card img {
@@ -16,6 +23,7 @@
   width: 90%;
   display: block;
   margin: 0 auto;
+  border-radius: 1.5rem;
 }
 
 .buttons-container {

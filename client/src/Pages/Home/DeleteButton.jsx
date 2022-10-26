@@ -1,13 +1,15 @@
 import axios from 'axios'
+import { useContext } from 'react'
+import GlobalContext from '../../context/GlobalContext'
 
-
-const handleDelete = async(id) => {
-  console.log(id);
-  await axios.delete(`/${id}`)
-  
-};
 const DeleteButton = ({ id }) => {
-  return <button onClick={()=> handleDelete(id)}>Delete</button>;
-};
+  const { updateRefresh } = useContext(GlobalContext)
+  const handleDelete = async (id) => {
+    await axios.delete(`/${id}`)
+    updateRefresh()
+  }
 
-export default DeleteButton;
+  return <button onClick={() => handleDelete(id)}>Delete</button>
+}
+
+export default DeleteButton

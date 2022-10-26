@@ -8,7 +8,7 @@ export const envs = {
   port: process.env.DB_PORT,
   host: process.env.HOST,
   dbName: process.env.DATABASE_NAME,
-  cloudName : process.env.CLOUD_NAME,
-  apiKey : process.env.API_KEY,
-  apiSecret : process.env.API_SECRET
+  cloudName: process.env.CLOUD_NAME,
+  apiKey: process.env.API_KEY,
+  apiSecret: process.env.API_SECRET,
 }

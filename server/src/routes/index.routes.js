@@ -13,13 +13,13 @@ const router = Router()
 
 const upload = fileUpload({
   useTempFiles: true,
-  tempFileDir : './uploads'
+  tempFileDir: './uploads',
 })
 
 router.get('/', getCards)
 router.get('/:id', getCard)
-router.post('/', upload,validateImage, createCard)
-router.patch('/:id',upload,validateImage, updateCard)
+router.post('/', upload, validateImage, createCard)
+router.patch('/:id', upload, validateImage, updateCard)
 router.delete('/:id', deleteCard)
 
 export default router

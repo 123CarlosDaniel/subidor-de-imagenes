@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react"
-import Loader from "../../components/Loader/Loader"
-import useAxios from "../../hooks/useAxios"
-import HomeList from "./HomeList"
+import { useContext, useEffect, useState } from 'react'
+import Loader from '../../components/Loader/Loader'
+import GlobalContext from '../../context/GlobalContext'
+import useAxios from '../../hooks/useAxios'
+import HomeList from './HomeList'
 
-const getApiUrl = "/"
+const getApiUrl = '/'
 
 const Home = () => {
   const [data, setData] = useState(null)
-  const {response, error,loading} = useAxios({url:getApiUrl})
-  console.log(response)
+  const { response, error, loading } = useAxios({ url: getApiUrl })
   useEffect(() => {
     if (response !== null) setData(response)
   }, [response])
 
-  
   if (loading) {
-    return (
-      <Loader/>
-    )
+    return <Loader all={true} />
   }
   return (
     <div>
-      {data!=null && <HomeList data={data} />}
+      {error && <h2>errorr</h2>}
+      {data != null && <HomeList data={data} />}
     </div>
   )
 }

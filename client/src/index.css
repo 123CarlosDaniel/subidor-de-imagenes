@@ -7,9 +7,10 @@
 }
 
 body {
-  background-color: #140f10;
+  background-color: #1b1b1b;
   color: white;
   font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
 }
 
 section {
@@ -19,7 +20,7 @@ section {
   
 }
 
-button {
+button, .button {
   padding: 0.5rem 1rem ;
   margin-block-start: 0.5rem;
   color: white;
@@ -28,10 +29,12 @@ button {
   background-color: #182e59;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
+  text-decoration: none;
+  border: none;
 }
-button:hover {
+button:hover, .button:hover {
   background-color: #ffd7f4;
-  color: #140f10;
+  color: #141212;
 }
 
 textarea {
@@ -40,4 +43,24 @@ textarea {
   padding: 0.5rem 0.5rem;
   border-radius: 15px;
   border: none;
+}
+
+.message {
+  margin-top: 1rem;
+  background-color: rgb(6, 58, 40);
+  box-shadow: 0 0 6px #18a036,0 0 8px #87ff89; 
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.error {
+  margin-top: 1rem;
+  background-color: rgb(135, 29, 29);
+  box-shadow: 0 0 6px #d85858,0 0 8px #992f2f; 
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
 }

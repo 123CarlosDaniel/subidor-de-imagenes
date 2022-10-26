@@ -30,14 +30,15 @@ export const createCard = async (req, res) => {
     if (!title || !price || !description) {
       throw new Error('Missing fields')
     }
-    let imageUrl = null, imageId = null
+    let imageUrl = null,
+      imageId = null
     if (req.files?.image) {
       const image = await uploadImage(req.files.image.tempFilePath)
       imageUrl = image.secure_url
       imageId = image.public_id
     }
     const created = await createCardService(
-      { title, price, description, imageUrl, imageId},
+      { title, price, description, imageUrl, imageId },
       res
     )
     if (created) {
@@ -56,13 +57,14 @@ export const updateCard = async (req, res) => {
     if (card === undefined)
       return res.status(400).send({ error: 'No encontrado' })
     const { title, price, description } = req.body
-    let imageUrl = null, imageId = null
+    let imageUrl = null,
+      imageId = null
     if (!req.files?.image) {
       imageUrl = card.imageurl
       imageId = card.imageid
     }
     if (req.files?.image) {
-      let result 
+      let result
       if (card.imageurl !== null) {
         console.log('updating')
         result = await updateImage(card.imageid, req.files.image.tempFilePath)

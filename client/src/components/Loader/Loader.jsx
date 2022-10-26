@@ -1,10 +1,10 @@
-import loader from "./loader.svg";
+import loader from './loader.svg'
 import './Loader.css'
 
-export default function Loader() {
+export default function Loader({ all = false }) {
   return (
-    <div className="loader">
-      <img src={loader} ></img>
+    <div className={`${all ? 'expand' : ''} loader`}>
+      <img src={loader}></img>
     </div>
-  );
+  )
 }

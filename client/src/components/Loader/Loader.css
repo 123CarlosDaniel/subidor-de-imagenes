@@ -1,4 +1,15 @@
 .loader {
   text-align: center;
-  transform: translateY(10rem);
+}
+
+.loader img {
+  height: 150px;
+}
+
+.expand {
+  padding-top: 10rem;
+}
+
+.expand img {
+  height: 300px;
 }

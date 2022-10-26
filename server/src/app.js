@@ -9,7 +9,7 @@ app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
   res.send('Bienvenido a mi aplicacion')
 })
 app.use('/api/v1', router)

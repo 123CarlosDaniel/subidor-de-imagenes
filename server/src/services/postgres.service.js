@@ -11,13 +11,13 @@ export const getCardsService = async (res) => {
   }
 }
 
-export const getCardService = async (cardId,res) => {
+export const getCardService = async (cardId, res) => {
   try {
-    const data = await pool.query("select * from card where id = $1", [cardId])
+    const data = await pool.query('select * from card where id = $1', [cardId])
     return data.rows[0]
   } catch (error) {
     console.log(error.message)
-    res.status(500).send({error:error.message})
+    res.status(500).send({ error: error.message })
     return null
   }
 }
@@ -42,7 +42,7 @@ export const updateCardService = async (data, id, res) => {
   try {
     await pool.query(
       'update card set title=$1, price=$2, description=$3, imageUrl=$4, imageId=$5 where id=$6',
-      [title, price, description, imageUrl,imageId, id]
+      [title, price, description, imageUrl, imageId, id]
     )
     return true
   } catch (error) {

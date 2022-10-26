@@ -26,6 +26,7 @@ div#div_file {
   text-align: center;
   background-color: #a095fb;
   margin-top: 1rem;
+  cursor: pointer;
 }
 
 div#div_file input {
